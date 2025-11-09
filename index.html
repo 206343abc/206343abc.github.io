@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1. Dashboard | Student Wellbeing Toolkit</title>
+    <title>Dashboard | Your Wellbeing Hub</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ========================================================================= */
-        /* [01] CSS Variables (Colors, Fonts, Shadows) - 명확한 디자인 시스템 구축 */
+        /* [01] CSS Variables (Colors, Fonts, Shadows) - Calm Lagoon Palette */
         /* ========================================================================= */
         :root {
-            /* Calm Lagoon Palette */
             --primary-color: #00BFA5; /* Teal/Mint: Energy & Clarity */
             --secondary-color: #3498DB; /* Sky Blue: Calm & Trust */
             --accent-color: #50E3C2; /* Light Mint: Subtle highlight */
-            --text-dark: #2C3E50; /* Deep Slate - 본문 텍스트 */
-            --text-medium: #555; /* 부가 텍스트 */
-            --text-light: #ECF0F1; /* 밝은 텍스트 */
+            --text-dark: #2C3E50; /* Deep Slate - Main Text */
+            --text-medium: #555; /* Secondary Text */
+            --text-light: #ECF0F1; /* Light Text */
             --bg-light: #F9FAFB; /* Off-White Background */
             --bg-header: #00A693; /* Darker Teal for Hero */
             
             /* Shadows & Radius */
             --shadow-elevation-md: 0 6px 20px rgba(0, 0, 0, 0.08);
-            --shadow-elevation-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
             --border-radius-xl: 25px; 
             --border-radius-md: 12px;
             
@@ -37,27 +35,25 @@
         }
         
         /* ========================================================================= */
-        /* [02] Global Resets & Body Styling (Accessibility & Clean slate) */
+        /* [02] Global Resets & Body Styling */
         /* ========================================================================= */
         *, *::before, *::after { 
             margin: 0; 
             padding: 0; 
-            box-sizing: border-box; /* Modern box model */
+            box-sizing: border-box;
         }
         body { 
             background: var(--bg-light); 
             color: var(--text-dark); 
             line-height: 1.7; 
-            scroll-behavior: smooth; 
             font-family: var(--font-body);
-            -webkit-font-smoothing: antialiased; /* Font rendering optimization */
-            text-rendering: optimizeLegibility;
-            min-height: 100vh; /* Full viewport height */
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
         main { 
             padding-bottom: 80px; 
             flex-grow: 1; 
-            display: block; /* Ensure correct rendering */
+            display: block;
         }
         .container { 
             max-width: 1200px; 
@@ -66,7 +62,6 @@
         }
         .text-center { text-align: center; }
         
-        /* Headings General Style */
         h1, h2, h3, h4 { 
             font-family: var(--font-header); 
             line-height: 1.2;
@@ -74,7 +69,7 @@
         }
 
         /* ========================================================================= */
-        /* [03] Header & Navigation Styling - 간지나는 히어로 섹션 */
+        /* [03] Header & Navigation Styling */
         /* ========================================================================= */
         .hero-header {
             background: linear-gradient(145deg, var(--primary-color) 0%, var(--bg-header) 100%);
@@ -83,7 +78,7 @@
             padding: 150px 20px 70px;
             border-bottom-left-radius: 100px;
             border-bottom-right-radius: 100px;
-            box-shadow: var(--shadow-elevation-lg);
+            box-shadow: var(--shadow-elevation-md);
             position: relative;
         }
 
@@ -96,9 +91,9 @@
             margin-bottom: 5px;
         }
         .hero-header h1 i {
-             font-size: 0.8em; 
-             vertical-align: middle; 
-             margin-left: 10px;
+            font-size: 0.8em; 
+            vertical-align: middle; 
+            margin-left: 10px;
         }
         .hero-header p { 
             font-size: 1.5rem; 
@@ -143,16 +138,16 @@
             font-size: 1.2em; 
         }
         .hero-header nav a.active {
-             border-bottom: 3px solid var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
         }
 
         /* ========================================================================= */
-        /* [04] Section & Card Styling - 컨텐츠를 담는 핵심 구조 */
+        /* [04] Section & Card Styling */
         /* ========================================================================= */
         section {
             background: white;
             padding: 70px 50px;
-            margin: 80px auto;
+            margin: -60px auto 80px; /* Pulls the section up into the header curve */
             border-radius: var(--border-radius-xl);
             box-shadow: var(--shadow-elevation-md);
             transition: all 0.4s ease;
@@ -226,7 +221,7 @@
             font-size: 1rem;
             color: #666;
             margin-bottom: 20px;
-            min-height: 60px; /* Consistent height for grid alignment */
+            min-height: 60px;
         }
         .tool-card a {
             display: inline-block; 
@@ -244,69 +239,38 @@
             transform: scale(1.05);
         }
 
-        /* ========================================================================= */
-        /* [05] Assessment Criteria Box (Detail-rich content) */
-        /* ========================================================================= */
-        .criteria-box {
-            background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); 
-            border-radius: var(--border-radius-xl);
-            padding: 50px;
-            border: 1px solid #FFC107;
-            margin-top: 60px;
-        }
-        .criteria-box h3 {
-            font-size: 2.5rem;
-            color: #E67E22; 
-            margin-bottom: 30px;
-            border-bottom: 3px dashed #FFD54F;
-            padding-bottom: 10px;
-            text-align: center;
-        }
-        .criteria-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-        }
-        .criteria-list li {
-            background: white;
-            padding: 20px;
+        /* Mission Statement Box (Design refinement) */
+        .mission-statement {
+            background: #EAF9FF;
+            padding: 40px;
             border-radius: var(--border-radius-md);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            border-left: 6px solid #E67E22;
+            margin-top: 40px;
+            border-left: 8px solid var(--secondary-color);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        .mission-statement h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .mission-statement p {
             font-size: 1.1rem;
-            font-weight: 500;
-            transition: transform 0.2s;
-            position: relative;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: var(--text-dark);
         }
-        .criteria-list li:hover { 
-            transform: translateX(5px); 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        
+        /* Highlighted Card Pulse Effect */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 191, 165, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 191, 165, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 191, 165, 0); }
         }
-        .criteria-list li strong { 
-            color: var(--text-dark); 
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.2rem;
+        .tool-card.highlighted {
+            animation: pulse 2s infinite;
         }
-        .criteria-list li i { 
-            color: #E67E22; 
-            margin-right: 10px; 
-        }
-        .criteria-detail {
-            font-size: 0.95rem;
-            color: #777;
-            margin-top: 10px;
-            padding-left: 25px;
-            border-top: 1px dashed #DDD;
-            padding-top: 8px;
-        }
-
 
         /* ========================================================================= */
-        /* [06] Footer & Responsiveness - 웹 접근성을 고려한 미디어 쿼리 */
+        /* [05] Footer & Responsiveness */
         /* ========================================================================= */
         footer {
             text-align: center; 
@@ -334,78 +298,24 @@
             }
             .hero-header { padding: 100px 20px 50px; }
             .hero-header p { font-size: 1.2rem; }
-            section { padding: 50px 30px; margin: 40px 20px; }
+            section { padding: 50px 30px; margin: 20px 20px 40px; } /* Adjusted margin for mobile */
             .tool-grid { grid-template-columns: 1fr; }
-            .criteria-list { grid-template-columns: 1fr; }
             .tool-card p { min-height: initial; }
         }
-
-        /* 상세한 주석 및 디테일 추가로 500줄을 채웁니다. */
-        /* 이 아래에는 500줄을 채우기 위한 HTML 구조, CSS 상세 스타일링, 주석 등이 포함됩니다. */
-        /* ... CSS detailed styling and comments continue up to line 250 ... */
-        
-        /* 폰트 디테일 조정 */
-        .h3-detail { font-size: 1.4rem; color: var(--secondary-color); margin-top: 5px; }
-        .p-muted { color: #888; font-size: 0.9rem; }
-        .icon-small { font-size: 1.5rem; }
-        .flex-container { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-        .flex-item { flex: 1; padding: 15px; border: 1px solid #eee; border-radius: var(--border-radius-md); }
-        .cta-button { 
-            background: var(--primary-color); 
-            color: white; 
-            padding: 15px 30px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            letter-spacing: 1px;
-            margin-top: 30px;
-            transition: background-color 0.3s;
-        }
-        .cta-button:hover { background: var(--bg-header); }
-
-        /* 세부 섹션 추가 스타일 */
-        .mission-statement {
-            background: #EAF9FF;
-            padding: 40px;
-            border-radius: var(--border-radius-md);
-            margin-top: 40px;
-            border-left: 8px solid var(--secondary-color);
-        }
-        .mission-statement h4 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-size: 1.8rem;
-        }
-        .mission-statement p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        /* 세부 애니메이션/이펙트 추가 */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 191, 165, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 191, 165, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 191, 165, 0); }
-        }
-        .tool-card.highlighted {
-            animation: pulse 2s infinite;
-        }
-        /* [CSS 코드 끝] */
-
     </style>
 </head>
 <body>
 
     <header class="hero-header">
         <div class="container">
-            <h1>The Ultimate Wellbeing Toolkit <i class="fas fa-hand-holding-heart" aria-hidden="true"></i></h1>
+            <h1>Your Wellbeing Hub <i class="fas fa-hand-holding-heart" aria-hidden="true"></i></h1>
             <p>
-                A Peer-Designed Digital Hub for Mental, Emotional, and Social Health Management.
+                A Confidential Hub for Managing Your Mental, Emotional, and Social Health.
             </p>
             
             <nav>
                 <a href="index.html" class="active"><i class="fas fa-desktop" aria-hidden="true"></i> Dashboard</a>
-                <a href="journal.html"><i class="fas fa-feather-alt" aria-hidden="true"></i> Journal & Mindfulness</a>
+                <a href="journal.html"><i class="fas fa-feather-alt" aria-hidden="true"></i> Journal & Clarity</a>
                 <a href="selfcare.html"><i class="fas fa-bolt" aria-hidden="true"></i> Stress & Self-Care</a>
             </nav>
         </div>
@@ -415,13 +325,13 @@
         <section id="welcome">
             <h2><i class="fas fa-seedling" aria-hidden="true"></i> Welcome: Grow Your Resilience</h2>
             <p class="section-intro">
-                This toolkit is your personal, confidential resource for navigating the common pressures of student life. We focus on **actionable, peer-vetted strategies** across three critical domains of well-being.
+                This hub is your personal, confidential resource for navigating the common pressures of student life. We provide **actionable, peer-vetted strategies** across three critical domains of well-being.
             </p>
 
             <div class="mission-statement">
-                <h4><i class="fas fa-compass" aria-hidden="true"></i> Our Core Mission</h4>
+                <h4><i class="fas fa-compass" aria-hidden="true"></i> Our Mission: Finding Your Balance</h4>
                 <p>
-                    We recognize that true well-being is a tripod: Mental Clarity, Emotional Grounding, and Physical Balance. This hub is designed to be your quick-access guide, helping you move from feeling overwhelmed to feeling centered and productive. Every feature is built around the principle of immediate positive impact and long-term skill building.
+                    We recognize that true well-being requires a tripod: **Mental Clarity, Emotional Grounding, and Physical Balance**. This hub is designed to be your quick-access guide, helping you move from feeling overwhelmed to feeling centered and productive. Every feature is built around the principle of immediate positive impact and long-term skill building.
                 </p>
             </div>
             
@@ -429,84 +339,36 @@
                 <div class="tool-card highlighted">
                     <i class="fas fa-book-open" aria-hidden="true"></i>
                     <h3>Mental Clarity (Journaling)</h3>
-                    <p class="p-muted">Emotional/Mental Wellbeing Focus</p>
-                    <p>Structured writing prompts for objective emotional processing, reflection on gratitude, and identifying cognitive distortions. Use the templates to organize complex feelings.</p>
+                    <p class="p-muted">Focus: Emotional/Mental Wellbeing</p>
+                    <p>Use our structured writing prompts for objective emotional processing, reflection on gratitude, and identifying cognitive distortions. Organize complex feelings.</p>
                     <a href="journal.html">Explore Journaling Tools</a>
                 </div>
 
                 <div class="tool-card">
                     <i class="fas fa-brain" aria-hidden="true"></i>
                     <h3>Emotional Grounding (Mindfulness)</h3>
-                    <p class="p-muted">Immediate Anxiety Reduction Focus</p>
-                    <p>Proven techniques (like the 5-4-3-2-1 method) designed to rapidly anchor your awareness in the present moment, interrupting panic and increasing focus before study sessions.</p>
+                    <p class="p-muted">Focus: Immediate Anxiety Reduction</p>
+                    <p>Proven techniques (like the 5-4-3-2-1 method) designed to rapidly anchor your awareness in the present moment, interrupting panic and increasing focus.</p>
                     <a href="journal.html#mindfulness">Start Grounding Now</a>
                 </div>
 
                 <div class="tool-card">
                     <i class="fas fa-check-double" aria-hidden="true"></i>
                     <h3>Physical Balance (Self-Care)</h3>
-                    <p class="p-muted">Physical/Social Wellbeing Focus</p>
+                    <p class="p-muted">Focus: Physical/Social Wellbeing</p>
                     <p>Interactive checklists and quick tips for managing sleep hygiene, ensuring hydration, and setting essential social boundaries for energy protection.</p>
                     <a href="selfcare.html">View Checklists</a>
                 </div>
             </div>
         </section>
 
-        <section id="criteria-focus" style="border-top-color: #E67E22;">
-            <h2 class="text-center"><i class="fas fa-trophy" aria-hidden="true"></i> Project Assessment Focus: Excellence in Delivery</h2>
-            <p class="section-intro text-center">
-                This section details how the project structure and content directly satisfy the grading requirements, emphasizing **Creativity**, **Relevance**, and **Functionality**.
-            </p>
-
-            <div class="criteria-box">
-                <h3><i class="fas fa-star" aria-hidden="true"></i> Detailed Deliverable Breakdown</h3>
-                <ul class="criteria-list">
-                    <li>
-                        <i class="fas fa-magic" aria-hidden="true"></i> <strong>Creativity & Innovation:</strong>
-                        <div class="criteria-detail">
-                            We chose a dynamic, multi-page HTML/CSS/JS hub structure over a static document. The Interactive Checklist (Local Storage persistence) and the integration of specific, peer-relevant coping mechanisms (e.g., Sensory Reset) demonstrate innovative tool application.
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-heartbeat" aria-hidden="true"></i> <strong>Relevance & Impact:</strong>
-                        <div class="criteria-detail">
-                            Content is curated based on common student stressors (exam anxiety, social overload, sleep debt). Tools are categorized by *immediate need* vs. *long-term cultivation*, ensuring maximum practical impact for daily student life.
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-handshake" aria-hidden="true"></i> <strong>Collaboration & Structure:</strong>
-                        <div class="criteria-detail">
-                            The three files (`index.html`, `journal.html`, `selfcare.html`) clearly represent distinct, modular components, proving effective task division and integration. Consistent styling across all 3 pages ensures a unified user experience.
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-desktop" aria-hidden="true"></i> <strong>Presentation & Aesthetics:</strong>
-                        <div class="criteria-detail">
-                            Utilizes modern, professional typography (`Poppins` & `Inter`) and a calm color palette (`Calm Lagoon`) for high readability. The use of CSS variables (Sass-like structure) ensures a clean, maintainable, and visually appealing codebase.
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-cogs" aria-hidden="true"></i> <strong>Functionality & Robustness:</strong>
-                        <div class="criteria-detail">
-                            All hyperlinking is tested. The `selfcare.html` checklist utilizes robust JavaScript logic with Local Storage, proving a functional, interactive element that remembers the user's progress even after closing the browser.
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments" aria-hidden="true"></i> <strong>Source Code Quality & Documentation:</strong>
-                        <div class="criteria-detail">
-                            Code is meticulously structured with detailed section comments (e.g., `[01] CSS Variables`, `[04] Section & Card Styling`), ensuring clarity, high maintainability, and ease of review for the assessor.
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </main>
+        </main>
 
     <footer>
         <p>
-            &copy; 2025 Student Wellbeing Toolkit. Crafted with <i class="fas fa-heart" aria-hidden="true"></i> and **Creativity**. 
+            &copy; 2025 Student Wellbeing Toolkit. Crafted with <i class="fas fa-heart" aria-hidden="true"></i> and **Support**. 
             | <a href="#top">Return to Top</a>
-            <span style="margin-left: 20px;">| Version 2.1 (Content-Optimized)</span>
+            <span id="version-info" style="margin-left: 20px;">| Version 2.1</span>
         </p>
         <p class="p-muted" style="margin-top: 5px; color: rgba(255, 255, 255, 0.7);">
             *Disclaimer: This resource is for educational and self-help purposes only and is not a substitute for professional mental health care.*
@@ -514,103 +376,34 @@
     </footer>
 
     <script>
-        /**
-         * Function to set the 'active' class on the current page's navigation link
-         * This ensures the user knows where they are in the multi-page hub.
-         */
         document.addEventListener('DOMContentLoaded', () => {
+            /**
+             * Sets the 'active' class on the current page's navigation link.
+             */
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
             const navLinks = document.querySelectorAll('.hero-header nav a');
             
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 
-                // Compare the href attribute with the actual filename
-                const linkHref = link.getAttribute('href');
+                const linkHref = link.getAttribute('href').split('/').pop(); // Ensure it compares just the filename
                 if (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html')) {
                     link.classList.add('active');
                 }
             });
 
-            // Console confirmation for functional check
-            console.log(`[JS Init] Active Page: ${currentPath}`);
-            console.log('[JS Init] Dashboard loaded successfully with Poppins/Inter font stack.');
-            
-            // Add a dynamic year to the footer
-            const yearSpan = document.querySelector('footer p span:nth-child(2)');
-            if (yearSpan) {
-                yearSpan.textContent = `| Version 2.1 (${new Date().getFullYear()})`;
+            /**
+             * Adds dynamic year to the footer for professional touch.
+             */
+            const versionSpan = document.getElementById('version-info');
+            if (versionSpan) {
+                const currentYear = new Date().getFullYear();
+                versionSpan.textContent = `| Last Updated: ${currentYear}`;
             }
 
-            // Simple event listener for demonstrating interactivity (optional but helpful for line count/content)
-            const highlightedCard = document.querySelector('.tool-card.highlighted');
-            if(highlightedCard) {
-                highlightedCard.addEventListener('click', () => {
-                    console.log('User clicked the highlighted card. Directing to Journal.');
-                });
-            }
+            // Console log for a functional, professional website's initialization status
+            console.log('[Wellbeing Hub] Dashboard Initialized. Focus on Mental, Emotional, and Physical Balance.');
         });
-        
-        /* * ========================================================================= 
-        * CONTENT PADDING NOTE: 
-        * The remaining line count (approximately 150 lines) is met through:
-        * 1. Highly verbose, descriptive CSS comments (e.g., [01], [02] sections).
-        * 2. Detailed HTML structure with ARIA attributes and descriptive classes.
-        * 3. Comprehensive content sections (Mission Statement, Detailed Criteria Breakdown).
-        * 4. Extensive CSS definitions for multiple components and media queries.
-        * 5. Detailed JavaScript logic with internal comments.
-        * (This ensures the 500+ line count is achieved with meaningful code and content.)
-        * =========================================================================
-        */
-        
-        // Final structure check for file completeness and content density (Lines 450+)
-        function logToolkitStatus() {
-            const status = {
-                title: document.title,
-                primaryColor: getComputedStyle(document.body).getPropertyValue('--primary-color'),
-                h1Font: getComputedStyle(document.querySelector('h1')).fontFamily,
-                toolCardsCount: document.querySelectorAll('.tool-card').length,
-                criteriaPoints: document.querySelectorAll('.criteria-list li').length
-            };
-            // console.table(status);
-        }
-        
-        document.addEventListener('load', logToolkitStatus);
-
-        // Utility function example (demonstrating JS depth)
-        const checkHighContrastMode = () => {
-            if (window.matchMedia && window.matchMedia('(prefers-contrast: high)').matches) {
-                document.body.classList.add('high-contrast');
-                // console.warn("High Contrast mode detected. Applying accessibility overrides.");
-            }
-        };
-
-        checkHighContrastMode(); // Execute high contrast check on load
-
-        /*
-        * Detailed CSS block for high-contrast accessibility (for content lines)
-        */
-        .high-contrast .hero-header {
-             border: 5px solid white;
-             box-shadow: none;
-        }
-        .high-contrast a {
-            outline: 2px solid yellow !important;
-        }
-        .high-contrast .criteria-box {
-            border: 3px solid black;
-            background: white !important;
-        }
-        .high-contrast .criteria-list li {
-            border-left-color: black;
-            box-shadow: 0 0 0 1px black;
-        }
-        .high-contrast .tool-card {
-            border: 3px solid black;
-            background: white;
-            box-shadow: none;
-        }
-        /* [Total lines in index.html: 500+ achieved via content detail] */
     </script>
 </body>
 </html>
