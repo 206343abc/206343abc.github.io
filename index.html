@@ -1,158 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thrive: A Student Wellbeing Toolkit</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      background: #f4f9ff;
-      color: #222;
-      line-height: 1.7;
-    }
-    header {
-      text-align: center;
-      background: linear-gradient(135deg, #7eb6ff, #96e6ff);
-      color: white;
-      padding: 60px 20px;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    nav {
-      margin-top: 20px;
-    }
-    nav a {
-      margin: 0 10px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    section h2 {
-      color: #2a71d0;
-      margin-bottom: 15px;
-      border-left: 6px solid #2a71d0;
-      padding-left: 10px;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #eaf4ff;
-      border-top: 1px solid #cce2ff;
-      font-size: 0.9rem;
-    }
-    .top-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #2a71d0;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 1.4rem;
-      cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      transition: 0.3s;
-    }
-    .top-btn:hover {
-      background: #1f5fb8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thrive: Student Wellbeing Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+  body { background: #e3f2fd; color: #222; scroll-behavior:smooth; }
+  header {
+    background: linear-gradient(135deg,#42a5f5,#90caf9);
+    color:white; text-align:center; padding:80px 20px; position:sticky; top:0; z-index:1000;
+    border-bottom-left-radius:50px; border-bottom-right-radius:50px;
+  }
+  header h1 { font-size:3rem; margin-bottom:10px; }
+  header p { font-size:1.2rem; opacity:0.9; }
+  nav { margin-top:20px; }
+  nav a {
+    margin: 0 12px; color:white; font-weight:600; text-decoration:none; transition:0.3s;
+  }
+  nav a:hover { text-decoration:underline; }
+  section {
+    max-width:900px; margin:60px auto; padding:30px; background:white;
+    border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.3s;
+  }
+  section:hover { transform: translateY(-3px); }
+  section h2 {
+    color:#1976d2; margin-bottom:15px; border-left:6px solid #1976d2; padding-left:12px;
+  }
+  ul { margin-left:20px; margin-top:10px; }
+  footer {
+    text-align:center; padding:50px 20px; background:#bbdefb; border-top:1px solid #90caf9;
+    font-size:0.9rem;
+  }
+  .top-btn {
+    position: fixed; bottom:30px; right:30px; background:#1976d2; color:white;
+    border:none; border-radius:50%; width:50px; height:50px; font-size:1.5rem;
+    cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition:0.3s;
+  }
+  .top-btn:hover { background:#1565c0; }
+  @media(max-width:600px){
+    header h1{ font-size:2.2rem; }
+    header p{ font-size:1rem; }
+    section{ padding:20px; margin:40px 15px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Thrive</h1>
-    <p>Small Steps, Strong Mind 🌱</p>
-    <nav>
-      <a href="#mindfulness">Mindfulness</a>
-      <a href="#stress">Stress Relief</a>
-      <a href="#journal">Journal Prompts</a>
-      <a href="#checklist">Self-Care</a>
-    </nav>
-  </header>
 
-  <section id="intro">
-    <h2>Welcome to Your Wellbeing Toolkit</h2>
-    <p>
-      Thrive is your all-in-one space to find calm, clarity, and confidence.
-      This toolkit helps students build emotional balance through mindfulness, journaling, and self-care.
-    </p>
-  </section>
+<header>
+  <h1>Thrive</h1>
+  <p>Small Steps, Strong Mind 🌱</p>
+  <nav>
+    <a href="#mindfulness">Mindfulness</a>
+    <a href="#stress">Stress Relief</a>
+    <a href="#journal">Journal</a>
+    <a href="#checklist">Self-Care</a>
+  </nav>
+</header>
 
-  <section id="mindfulness">
-    <h2>🌿 Mindfulness Exercises</h2>
-    <p>Practice being present and aware with these simple exercises:</p>
-    <ul>
-      <li><strong>1-Minute Breathing:</strong> Close your eyes, inhale for 4 seconds, hold for 2, exhale for 6.</li>
-      <li><strong>Body Scan:</strong> Notice sensations from head to toe. Breathe into areas of tension.</li>
-      <li><strong>Gratitude Pause:</strong> Think of one thing you’re thankful for right now.</li>
-    </ul>
-  </section>
+<section id="intro">
+  <h2>Welcome to Your Wellbeing Toolkit</h2>
+  <p>Thrive is your all-in-one digital toolkit to help manage stress, boost emotional awareness, and practice self-care in daily life. Designed for students, it’s simple, interactive, and practical.</p>
+</section>
 
-  <section id="stress">
-    <h2>💨 Stress Relief Zone</h2>
-    <p>When stress hits, take a break with these strategies:</p>
-    <ul>
-      <li><strong>Move:</strong> Stretch your shoulders, neck, and wrists for 2 minutes.</li>
-      <li><strong>Reset:</strong> Step away from screens and look outside for 30 seconds.</li>
-      <li><strong>Listen:</strong> Play calming instrumental music or nature sounds.</li>
-      <li><strong>Connect:</strong> Talk to a trusted friend — sharing helps lighten the load.</li>
-    </ul>
-  </section>
+<section id="mindfulness">
+  <h2>🌿 Mindfulness Exercises</h2>
+  <ul>
+    <li><strong>1-Minute Breathing:</strong> Inhale 4s → Hold 2s → Exhale 6s</li>
+    <li><strong>Body Scan:</strong> Notice sensations from head to toe, release tension</li>
+    <li><strong>Gratitude Pause:</strong> Think of one thing you’re thankful for right now</li>
+  </ul>
+</section>
 
-  <section id="journal">
-    <h2>📝 Journal Prompts</h2>
-    <p>Reflect on these prompts to understand your emotions better:</p>
-    <ul>
-      <li>What made me smile today?</li>
-      <li>What challenge taught me something valuable recently?</li>
-      <li>How do I show kindness to myself when I make mistakes?</li>
-      <li>What is one small thing I can do tomorrow to feel more balanced?</li>
-    </ul>
-  </section>
+<section id="stress">
+  <h2>💨 Stress Relief Zone</h2>
+  <ul>
+    <li><strong>Move:</strong> Stretch shoulders, neck, wrists for 2 minutes</li>
+    <li><strong>Reset:</strong> Step away from screens for 30 seconds</li>
+    <li><strong>Listen:</strong> Play calming music or nature sounds</li>
+    <li><strong>Connect:</strong> Talk to a friend; sharing lightens stress</li>
+  </ul>
+</section>
 
-  <section id="checklist">
-    <h2>💖 Self-Care Checklist</h2>
-    <p>Use this list to track small daily habits that boost your wellbeing:</p>
-    <ul>
-      <li>☐ Slept at least 7 hours</li>
-      <li>☐ Drank enough water</li>
-      <li>☐ Took a mindful break (no screens)</li>
-      <li>☐ Expressed gratitude for something or someone</li>
-      <li>☐ Spent 10 minutes doing something you enjoy</li>
-    </ul>
-  </section>
+<section id="journal">
+  <h2>📝 Journal Prompts</h2>
+  <ul>
+    <li>What made me smile today?</li>
+    <li>What challenge taught me something valuable recently?</li>
+    <li>How do I show kindness to myself?</li>
+    <li>One small step I can take tomorrow to feel balanced?</li>
+  </ul>
+</section>
 
-  <footer>
-    <p>© 2025 Thrive Wellbeing Toolkit — Built with ❤️ for Students</p>
-  </footer>
+<section id="checklist">
+  <h2>💖 Self-Care Checklist</h2>
+  <ul>
+    <li>☐ Sleep at least 7 hours</li>
+    <li>☐ Drink enough water</li>
+    <li>☐ Take mindful break (no screens)</li>
+    <li>☐ Express gratitude for something</li>
+    <li>☐ Spend 10 min on a hobby or activity you enjoy</li>
+  </ul>
+</section>
 
-  <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<footer>
+  <p>© 2025 Thrive Wellbeing Toolkit — Built with ❤️ for Students</p>
+</footer>
+
+<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 </body>
 </html>
