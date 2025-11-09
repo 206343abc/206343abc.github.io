@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Self-Care | The Student Wellbeing Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* CSS 통합 및 정리 (index.html과 동일) */
+        :root {
+            --primary-color: #2ECC71; 
+            --secondary-color: #3498DB; 
+            --text-dark: #2C3E50; 
+            --text-light: #ECF0F1; 
+            --bg-light: #F9FAFB;
+            --bg-header: #27AE60;
+            --shadow-elevation: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius-large: 15px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+        body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+        main { padding-bottom: 50px; }
+        
+        /* Header & Navigation */
+        .hero-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-header) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px 50px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .hero-header h1 { 
+            font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; letter-spacing: 2px;
+        }
+        .hero-header p { font-size: 1.5rem; opacity: 0.9; margin-top: 15px; }
+        .hero-header nav { margin-top: 40px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .hero-header nav a {
+            color: var(--secondary-color); margin: 0 15px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s ease-in-out; padding: 8px 12px; border-radius: 5px;
+        }
+        .hero-header nav a:hover, .hero-header nav a.active {
+            color: white; background: rgba(255, 255, 255, 0.15); transform: translateY(-3px);
+        }
+        .hero-header nav a i { margin-right: 8px; }
+
+        /* Section & Typography */
+        section {
+            max-width: 1200px; margin: 80px auto; padding: 50px; background: white;
+            border-radius: var(--border-radius-large); box-shadow: var(--shadow-elevation); transition: transform 0.3s;
+        }
+        section h2 {
+            font-family: 'Playfair Display', serif; color: var(--text-dark); font-size: 2.5rem;
+            margin-bottom: 30px; border-bottom: 4px solid var(--primary-color); padding-bottom: 10px;
+        }
+        section h2 i { color: var(--primary-color); margin-right: 15px; }
+        .section-intro { font-size: 1.1rem; color: #555; margin-bottom: 40px; }
+
+        /* Stress Relief Card Grid */
+        .relief-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+        .relief-card {
+            background: #F0F5FD; /* Light Blue */
+            padding: 25px; border-radius: var(--border-radius-large);
+            border: 1px solid var(--secondary-color); transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .relief-card:hover {
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.15); transform: translateY(-3px);
+        }
+        .relief-card h3 { color: var(--secondary-color); font-size: 1.6rem; margin-bottom: 10px;}
+        .relief-card i { color: var(--primary-color); margin-right: 8px;}
+
+        /* Checklist Styles */
+        .checklist-grid {
+            display: grid; grid-template-columns: 1fr; gap: 15px;
+            max-width: 800px; margin: 0 auto;
+        }
+        .checklist-item {
+            background: #fff; padding: 15px 20px; border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex; align-items: center;
+            transition: background-color 0.2s;
+        }
+        .checklist-item:hover {
+            background: #EAF7F3;
+        }
+        .checklist-item input[type="checkbox"] {
+            transform: scale(1.4); margin-right: 15px; accent-color: var(--primary-color);
+        }
+        .checklist-item label {
+            flex-grow: 1; cursor: pointer; font-weight: 500;
+        }
+        .checklist-item input[type="checkbox"]:checked + label {
+            text-decoration: line-through; color: #999;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 40px 20px; background: var(--bg-header); color: var(--text-light);
+            margin-top: 50px; font-size: 0.9rem;
+        }
+        footer a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-header h1 { font-size: 2.5rem; }
+            .hero-header p { font-size: 1rem; }
+            .hero-header nav a { margin: 5px 8px; font-size: 0.9rem; }
+            section { margin: 40px 20px; padding: 30px; }
+            section h2 { font-size: 2rem; }
+            .relief-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <h1>Stress Relief & Self-Care <i class="fas fa-heartbeat"></i></h1>
+        <p>Actionable steps to stabilize your mood and prioritize your needs.</p>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="journal.html"><i class="fas fa-book-open"></i> Journal & Mindfulness</a>
+            <a href="selfcare.html" class="active"><i class="fas fa-heartbeat"></i> Stress & Self-Care</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="stress">
+            <h2>Quick Stress Relief Exercises (5-10 Minutes) <i class="fas fa-bolt"></i></h2>
+            <p class="section-intro">
+                When you feel overwhelmed, use these short, **effective exercises** to regain control over your emotional state. **(Mental & Emotional Wellbeing Focus)**
+            </p>
+            <div class="relief-grid">
+                <div class="relief-card">
+                    <h3>Progressive Muscle Relaxation</h3>
+                    <p>Systematically tense and release muscle groups from head to toe. This physical process distracts the mind and relieves tension buildup.</p>
+                </div>
+                <div class="relief-card">
+                    <h3>Mindful Movement (Shake it Out)</h3>
+                    <p>Put on a quick, upbeat song and move or shake your body freely for 5 minutes. Release physical energy trapped by stress.</p>
+                </div>
+                <div class="relief-card">
+                    <h3>Cognitive Reappraisal</h3>
+                    <p>Identify the catastrophic thought (e.g., "I will fail"). Reframe it: "I am challenged, but I can take one small step now."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="checklist">
+            <h2>Daily & Weekly Self-Care Checklist <i class="fas fa-check-square"></i></h2>
+            <p class="section-intro">
+                Proactive self-care is vital for long-term **well-being**. Use this checklist to track your commitment to your physical, emotional, and social needs. **(Relevance & Impact Focus)**
+            </p>
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <input type="checkbox" id="c1"><label for="c1">7+ hours of quality sleep</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c2"><label for="c2">Hydration: Drank at least 8 glasses of water</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c3"><label for="c3">10 minutes of physical activity/stretching</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c4"><label for="c4">Digital Detox: Set a screen-time boundary</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c5"><label for="c5">Authentic social connection (called a friend/family)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c6"><label for="c6">Practiced one stress-relief technique from above</label>
+                </div>
+            </div>
+            
+            <div class="note-box" style="margin-top: 30px;">
+                <i class="fas fa-lightbulb"></i> **Note:** This checklist uses JavaScript (in this file) and Local Storage to save your checked state across sessions, promoting continuous use!
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Student Wellbeing Toolkit. Designed for Peers, By Peers. | <a href="#top">Back to Top</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Navigation Active Class
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.hero-header nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 2. Checklist State Saving (Impact & Functionality)
+            const checkBoxes = document.querySelectorAll('.checklist-grid input[type="checkbox"]');
+            
+            // Load saved state
+            checkBoxes.forEach(checkbox => {
+                const savedState = localStorage.getItem(checkbox.id);
+                if (savedState === 'checked') {
+                    checkbox.checked = true;
+                }
+            });
+
+            // Save state on change
+            checkBoxes.forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    if (event.target.checked) {
+                        localStorage.setItem(event.target.id, 'checked');
+                    } else {
+                        localStorage.setItem(event.target.id, 'unchecked');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
