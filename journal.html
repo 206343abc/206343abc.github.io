@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Journal | The Student Wellbeing Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* CSS 통합 및 정리 (index.html과 동일) */
+        :root {
+            --primary-color: #2ECC71; 
+            --secondary-color: #3498DB; 
+            --text-dark: #2C3E50; 
+            --text-light: #ECF0F1; 
+            --bg-light: #F9FAFB;
+            --bg-header: #27AE60;
+            --shadow-elevation: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius-large: 15px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+        body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+        main { padding-bottom: 50px; }
+        
+        /* Header & Navigation */
+        .hero-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-header) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px 50px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .hero-header h1 { 
+            font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; letter-spacing: 2px;
+        }
+        .hero-header p { font-size: 1.5rem; opacity: 0.9; margin-top: 15px; }
+        .hero-header nav { margin-top: 40px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .hero-header nav a {
+            color: var(--secondary-color); margin: 0 15px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s ease-in-out; padding: 8px 12px; border-radius: 5px;
+        }
+        .hero-header nav a:hover, .hero-header nav a.active {
+            color: white; background: rgba(255, 255, 255, 0.15); transform: translateY(-3px);
+        }
+        .hero-header nav a i { margin-right: 8px; }
+
+        /* Section & Typography */
+        section {
+            max-width: 1200px; margin: 80px auto; padding: 50px; background: white;
+            border-radius: var(--border-radius-large); box-shadow: var(--shadow-elevation); transition: transform 0.3s;
+        }
+        section h2 {
+            font-family: 'Playfair Display', serif; color: var(--text-dark); font-size: 2.5rem;
+            margin-bottom: 30px; border-bottom: 4px solid var(--primary-color); padding-bottom: 10px;
+        }
+        section h2 i { color: var(--primary-color); margin-right: 15px; }
+        .section-intro { font-size: 1.1rem; color: #555; margin-bottom: 40px; }
+
+        /* Journal Card Grid */
+        .journal-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
+        }
+        .journal-card {
+            background: #fff; border: 1px solid #E0E0E0; border-radius: var(--border-radius-large);
+            padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s;
+            border-left: 6px solid var(--secondary-color); /* Visual focus */
+        }
+        .journal-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); transform: translateY(-3px);
+        }
+        .journal-card h3 { 
+            font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 10px;
+        }
+        .journal-card p {
+            font-style: italic; color: #666; margin-top: 10px;
+        }
+        .journal-card i {
+            margin-right: 8px; color: var(--primary-color);
+        }
+        
+        /* Mindfulness Technique Card */
+        .technique-card {
+            background: #EAF7F3; /* Light Green */
+            padding: 30px; border-radius: var(--border-radius-large);
+            border: 1px solid var(--primary-color); margin-top: 40px;
+        }
+        .technique-card h3 { color: var(--primary-color); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-header h1 { font-size: 2.5rem; }
+            .hero-header p { font-size: 1rem; }
+            .hero-header nav a { margin: 5px 8px; font-size: 0.9rem; }
+            section { margin: 40px 20px; padding: 30px; }
+            section h2 { font-size: 2rem; }
+            .journal-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 40px 20px; background: var(--bg-header); color: var(--text-light);
+            margin-top: 50px; font-size: 0.9rem;
+        }
+        footer a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <h1>Journal & Mindfulness Hub <i class="fas fa-book-open"></i></h1>
+        <p>Reflect, Process, and Build Emotional Resilience.</p>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="journal.html" class="active"><i class="fas fa-book-open"></i> Journal & Mindfulness</a>
+            <a href="selfcare.html"><i class="fas fa-heartbeat"></i> Stress & Self-Care</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="journal-prompts">
+            <h2>Deep Reflective Journal Prompts <i class="fas fa-feather-alt"></i></h2>
+            <p class="section-intro">
+                Use these structured prompts to move beyond surface-level feelings and explore the core of your mental and emotional state. **(Mental & Emotional Wellbeing Focus)**
+            </p>
+
+            <div class="journal-grid">
+                <div class="journal-card">
+                    <h3>Morning Clarity</h3>
+                    <p>What is one emotion I need to acknowledge today, and what is one small, actionable step I can take to nurture it?</p>
+                </div>
+                <div class="journal-card">
+                    <h3>The Resilience Audit</h3>
+                    <p>Describe a recent challenge. What did I learn about my own **inner strength** while navigating it?</p>
+                </div>
+                <div class="journal-card">
+                    <h3>Boundary Check</h3>
+                    <p>Where did I overextend myself this week? What does 'Self-Respecting No' look like for me tomorrow?</p>
+                </div>
+                <div class="journal-card">
+                    <h3>Gratitude Expansion</h3>
+                    <p>List three things I am truly grateful for, and describe the sensory details of *why* they bring me joy.</p>
+                </div>
+                <div class="journal-card">
+                    <h3>Unsent Letter</h3>
+                    <p>Write a letter to a feeling (e.g., Anxiety, Excitement). What is it trying to teach me?</p>
+                </div>
+                <div class="journal-card">
+                    <h3>Social Connection Score</h3>
+                    <p>Who did I authentically connect with recently, and how did that connection contribute to my sense of belonging? **(Social Wellbeing Focus)**</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mindfulness-techniques">
+            <h2>Mindfulness & Grounding Techniques <i class="fas fa-brain"></i></h2>
+            <p class="section-intro">
+                These exercises can be used anytime to instantly anchor yourself to the present moment, reducing overwhelm and increasing focus.
+            </p>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-lungs"></i> Box Breathing (4x4x4x4)</h3>
+                <p><strong>Method:</strong> Inhale slowly for 4 seconds, Hold for 4 seconds, Exhale slowly for 4 seconds, Wait for 4 seconds. Repeat 5 times. This technique calms the nervous system by regulating the vagus nerve.</p>
+            </div>
+            <div class="technique-card">
+                <h3><i class="fas fa-hand-rock"></i> 5-4-3-2-1 Grounding</h3>
+                <p><strong>Method:</strong> Name 5 things you **see**, 4 things you can **touch**, 3 things you can **hear**, 2 things you can **smell**, and 1 thing you can **taste**. This is a powerful tool to interrupt panic/anxiety.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Student Wellbeing Toolkit. Designed for Peers, By Peers. | <a href="#top">Back to Top</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.hero-header nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
