@@ -1,184 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thrive: Ultimate Student Wellbeing Toolkit</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-  body { background: #e8f0fe; color: #222; scroll-behavior:smooth; }
-  
-  header {
-    background: linear-gradient(135deg,#42a5f5,#90caf9);
-    color:white; text-align:center; padding:80px 20px; position:sticky; top:0; z-index:1000;
-    border-bottom-left-radius:50px; border-bottom-right-radius:50px;
-  }
-  header h1 { font-size:3rem; margin-bottom:10px; }
-  header p { font-size:1.2rem; opacity:0.9; }
-  nav { margin-top:20px; }
-  nav a { margin: 0 12px; color:white; font-weight:600; text-decoration:none; transition:0.3s; }
-  nav a:hover { text-decoration:underline; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Dashboard | The Student Wellbeing Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* CSS 통합 및 정리 */
+        :root {
+            --primary-color: #2ECC71; /* Emerald Green (Wellbeing Focus) */
+            --secondary-color: #3498DB; /* Sky Blue (Calm Focus) */
+            --text-dark: #2C3E50; 
+            --text-light: #ECF0F1; 
+            --bg-light: #F9FAFB;
+            --bg-header: #27AE60; /* Darker Green */
+            --shadow-elevation: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius-large: 15px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+        body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+        main { padding-bottom: 50px; }
+        
+        /* Header & Navigation */
+        .hero-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-header) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px 50px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .hero-header h1 { 
+            font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; letter-spacing: 2px;
+        }
+        .hero-header p { font-size: 1.5rem; opacity: 0.9; margin-top: 15px; }
+        .hero-header nav { margin-top: 40px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .hero-header nav a {
+            color: var(--secondary-color); margin: 0 15px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s ease-in-out; padding: 8px 12px; border-radius: 5px;
+        }
+        .hero-header nav a:hover, .hero-header nav a.active {
+            color: white; background: rgba(255, 255, 255, 0.15); transform: translateY(-3px);
+        }
+        .hero-header nav a i { margin-right: 8px; }
 
-  section {
-    max-width:1000px; margin:60px auto; padding:30px; background:white;
-    border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.3s;
-  }
-  section:hover { transform: translateY(-3px); }
-  section h2 { color:#1976d2; margin-bottom:15px; border-left:6px solid #1976d2; padding-left:12px; }
+        /* Section & Typography */
+        section {
+            max-width: 1200px; margin: 80px auto; padding: 50px; background: white;
+            border-radius: var(--border-radius-large); box-shadow: var(--shadow-elevation); transition: transform 0.3s;
+        }
+        section h2 {
+            font-family: 'Playfair Display', serif; color: var(--text-dark); font-size: 2.5rem;
+            margin-bottom: 30px; border-bottom: 4px solid var(--primary-color); padding-bottom: 10px;
+        }
+        section h2 i { color: var(--primary-color); margin-right: 15px; }
+        .section-intro { font-size: 1.1rem; color: #555; margin-bottom: 40px; }
 
-  ul { margin-left:20px; margin-top:10px; }
+        /* Tool Access Grid */
+        .tool-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+        .tool-card {
+            background: #fff; border: 2px solid var(--secondary-color); border-radius: var(--border-radius-large);
+            padding: 40px 30px; text-align: center; transition: all 0.3s;
+        }
+        .tool-card:hover {
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2); transform: translateY(-8px); background: #F0F5FD;
+        }
+        .tool-card i { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 15px; }
+        .tool-card h3 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 10px; }
+        .tool-card a {
+            display: inline-block; background: var(--primary-color); color: white; padding: 10px 20px;
+            text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .tool-card a:hover { background: #27AE60; }
 
-  .card {
-    background:#f1f8ff; padding:15px 20px; margin:15px 0; border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05); transition:0.3s;
-  }
-  .card:hover { transform: translateY(-2px); }
+        /* Footer */
+        footer {
+            text-align: center; padding: 40px 20px; background: var(--bg-header); color: var(--text-light);
+            margin-top: 50px; font-size: 0.9rem;
+        }
+        footer a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s; }
 
-  .top-btn {
-    position: fixed; bottom:30px; right:30px; background:#1976d2; color:white;
-    border:none; border-radius:50%; width:50px; height:50px; font-size:1.5rem;
-    cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition:0.3s;
-  }
-  .top-btn:hover { background:#1565c0; }
-
-  footer {
-    text-align:center; padding:50px 20px; background:#bbdefb; border-top:1px solid #90caf9;
-    font-size:0.9rem;
-  }
-
-  @media(max-width:600px){
-    header h1{ font-size:2.2rem; }
-    header p{ font-size:1rem; }
-    section{ padding:20px; margin:40px 15px; }
-  }
-</style>
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-header h1 { font-size: 2.5rem; }
+            .hero-header p { font-size: 1rem; }
+            .hero-header nav a { margin: 5px 8px; font-size: 0.9rem; }
+            section { margin: 40px 20px; padding: 30px; }
+            section h2 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Thrive</h1>
-  <p>The Ultimate Student Wellbeing Toolkit 🌱</p>
-  <nav>
-    <a href="#intro">Home</a>
-    <a href="#mindfulness">Mindfulness</a>
-    <a href="#stress">Stress Relief</a>
-    <a href="#journal">Journal</a>
-    <a href="#checklist">Self-Care</a>
-    <a href="#selfcheck">Self-Check</a>
-    <a href="#reflection">Reflection</a>
-  </nav>
-</header>
+    <header class="hero-header">
+        <h1>The Student Wellbeing Toolkit 🌿</h1>
+        <p>Your Digital Hub for Mental, Emotional, and Social Health Management</p>
+        <nav>
+            <a href="index.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="journal.html"><i class="fas fa-book-open"></i> Journal & Mindfulness</a>
+            <a href="selfcare.html"><i class="fas fa-heartbeat"></i> Stress & Self-Care</a>
+        </nav>
+    </header>
 
-<section id="intro">
-  <h2>Welcome to Thrive</h2>
-  <p>
-    Thrive is a complete digital toolkit to help students manage mental, emotional, and social wellbeing.
-    Explore exercises, journaling prompts, self-check tools, and strategies to strengthen resilience.
-  </p>
-</section>
+    <main>
+        <section id="welcome">
+            <h2>Welcome to Your Toolkit <i class="fas fa-hand-peace"></i></h2>
+            <p class="section-intro">
+                This digital toolkit, developed by peers, is designed to provide **practical, immediate resources** to help you effectively manage stress, build emotional resilience, and foster strong social well-being. Navigate through the sections below to find the tools you need right now.
+            </p>
 
-<section id="mindfulness">
-  <h2>🌿 Mindfulness Exercises</h2>
-  <div class="card">
-    <strong>1-Minute Breathing:</strong> Inhale 4s → Hold 2s → Exhale 6s.
-  </div>
-  <div class="card">
-    <strong>Body Scan:</strong> Notice sensations from head to toe, release tension.
-  </div>
-  <div class="card">
-    <strong>Gratitude Pause:</strong> Think of one thing you are thankful for.
-  </div>
-  <div class="card">
-    <strong>Mindful Walking:</strong> Walk slowly, notice every step and sound around you.
-  </div>
-</section>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>Mindfulness & Journaling</h3>
+                    <p>Structured prompts and deep reflective exercises to process emotions and gain clarity.</p>
+                    <a href="journal.html">Access Journal Prompts</a>
+                </div>
 
-<section id="stress">
-  <h2>💨 Stress Relief Zone</h2>
-  <div class="card">
-    <strong>Desk Stretches:</strong> Neck, shoulders, wrists — 2 minutes.
-  </div>
-  <div class="card">
-    <strong>Digital Detox:</strong> Step away from screens for 5–10 minutes.
-  </div>
-  <div class="card">
-    <strong>Music & Nature:</strong> Play calming instrumental or ambient sounds.
-  </div>
-  <div class="card">
-    <strong>Connect:</strong> Talk to a friend or mentor about your feelings.
-  </div>
-</section>
+                <div class="tool-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Stress & Energy Management</h3>
+                    <p>Quick techniques and effective exercises for immediate stress relief and emotional grounding.</p>
+                    <a href="selfcare.html#stress">Stress Relief Exercises</a>
+                </div>
 
-<section id="journal">
-  <h2>📝 Journal Prompts</h2>
-  <div class="card">
-    What made me smile today?
-  </div>
-  <div class="card">
-    What challenge taught me something valuable recently?
-  </div>
-  <div class="card">
-    How do I show kindness to myself when I make mistakes?
-  </div>
-  <div class="card">
-    One small action I can take tomorrow to feel more balanced?
-  </div>
-</section>
+                <div class="tool-card">
+                    <i class="fas fa-check-double"></i>
+                    <h3>Self-Care Checklists</h3>
+                    <p>Daily and weekly actionable steps to ensure you maintain physical and mental balance.</p>
+                    <a href="selfcare.html#checklist">View Checklists</a>
+                </div>
+            </div>
+        </section>
 
-<section id="checklist">
-  <h2>💖 Self-Care Checklist</h2>
-  <div class="card">
-    ☐ Sleep 7+ hours
-  </div>
-  <div class="card">
-    ☐ Drink enough water
-  </div>
-  <div class="card">
-    ☐ Take 10-min mindful break
-  </div>
-  <div class="card">
-    ☐ Express gratitude
-  </div>
-  <div class="card">
-    ☐ Enjoy a hobby for at least 10 min
-  </div>
-</section>
+        <section id="project-overview">
+            <h2>Our Project Vision <i class="fas fa-users"></i></h2>
+            <p class="section-intro">
+                This toolkit is our submission for the **Mindfulness or Wellbeing Toolkit Project**. It focuses on **Relevance** and **Impact** by offering a structured, easily accessible solution for student mental health management.
+            </p>
+            <div class="tool-grid">
+                <div class="tool-card" style="border-color: #E74C3C;">
+                    <i class="fas fa-lightbulb" style="color: #E74C3C;"></i>
+                    <h3>Creativity & Innovation</h3>
+                    <p>We designed the toolkit to be highly interactive (digital format) and categorized the tools for specific needs (Journal, Stress, Self-Care).</p>
+                </div>
+                <div class="tool-card" style="border-color: #9B59B6;">
+                    <i class="fas fa-handshake" style="color: #9B59B6;"></i>
+                    <h3>Collaboration & Presentation</h3>
+                    <p>The clear, consistent design and modular structure are evidence of effective teamwork and a high-quality presentation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<section id="selfcheck">
-  <h2>🧠 Self-Check: Mental & Emotional Health</h2>
-  <div class="card">
-    Rate your stress level today: 1 (Low) ~ 5 (High)  
-    <br> ☐1 ☐2 ☐3 ☐4 ☐5
-  </div>
-  <div class="card">
-    Mood check: 😊 🙂 😐 😟 😢  
-    <br> ☐ 😊 ☐ 🙂 ☐ 😐 ☐ 😟 ☐ 😢
-  </div>
-  <div class="card">
-    Social connection: Did you reach out to someone today?  
-    <br> ☐ Yes ☐ No
-  </div>
-</section>
+    <footer>
+        <p>&copy; 2025 Student Wellbeing Toolkit. Designed for Peers, By Peers. | <a href="#top">Back to Top</a></p>
+    </footer>
 
-<section id="reflection">
-  <h2>💭 Reflection & Action Plan</h2>
-  <div class="card">
-    What is one thing I can do tomorrow to feel calmer?
-  </div>
-  <div class="card">
-    What was my biggest emotional challenge today and how did I respond?
-  </div>
-  <div class="card">
-    Write one positive affirmation for yourself:
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 Thrive Wellbeing Toolkit — Built with ❤️ for Students</p>
-</footer>
-
-<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.hero-header nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
